@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Chess.com to Lichess Import",
+  "version": "0.1.0",
+  "description": "Import the current Chess.com game into Lichess with one click.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://www.chess.com/*"],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "action": {
+    "default_title": "Import Chess.com game to Lichess"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.chess.com/game/*",
+        "https://www.chess.com/game/live/*"
+      ],
+      "js": ["chess-com.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

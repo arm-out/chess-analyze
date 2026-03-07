@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sending PGN to Lichess</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(160deg, #f4ecd8 0%, #efe3c2 55%, #dcc79f 100%);
+        color: #20180d;
+      }
+
+      main {
+        width: min(32rem, calc(100vw - 2rem));
+        padding: 2rem;
+        border-radius: 20px;
+        background: rgba(255, 250, 239, 0.92);
+        box-shadow: 0 18px 60px rgba(55, 38, 11, 0.18);
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .error {
+        color: #8c1d18;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Sending PGN to Lichess</h1>
+      <p id="status">Preparing your import...</p>
+      <form id="import-form" action="https://lichess.org/import" method="post" hidden>
+        <textarea name="pgn" id="pgn"></textarea>
+      </form>
+    </main>
+    <script src="relay.js"></script>
+  </body>
+</html>
