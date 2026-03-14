@@ -23,6 +23,15 @@ async function clearBadge(tabId) {
   });
 }
 
+async function disableAction(tabId) {
+  await chrome.action.disable(tabId);
+  await clearBadge(tabId);
+}
+
+async function enableAction(tabId) {
+  await chrome.action.enable(tabId);
+}
+
 async function setReadyBadge(tabId) {
   await chrome.action.setBadgeTextColor?.({ tabId, color: '#ffffff' });
   await chrome.action.setBadgeBackgroundColor({
@@ -96,9 +105,11 @@ async function sendChessTabMessage(tabId, message, options = {}) {
 
 async function refreshTabStatus(tabId, url) {
   if (!isSupportedChessUrl(url)) {
-    await clearBadge(tabId);
+    await disableAction(tabId);
     return;
   }
+
+  await enableAction(tabId);
 
   try {
     const response = await sendChessTabMessage(tabId, { type: 'GET_STATUS' });
@@ -124,11 +135,11 @@ chrome.tabs.onActivated.addListener(async ({ tabId }) => {
 });
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-  if (changeInfo.status !== 'complete') {
+  if (!changeInfo.url && changeInfo.status !== 'complete') {
     return;
   }
 
-  await refreshTabStatus(tabId, tab.url);
+  await refreshTabStatus(tabId, changeInfo.url || tab.url);
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

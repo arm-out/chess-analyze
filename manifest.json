@@ -15,6 +15,7 @@
     "service_worker": "service-worker.js"
   },
   "action": {
+    "default_state": "disabled",
     "default_title": "Import Chess.com game to Lichess",
     "default_icon": {
       "16": "icons/icon16.png",
