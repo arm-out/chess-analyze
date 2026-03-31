@@ -12,7 +12,7 @@
   "permissions": ["storage", "tabs", "scripting"],
   "host_permissions": ["https://www.chess.com/*", "https://lichess.org/*"],
   "background": {
-    "service_worker": "service-worker.js"
+    "service_worker": "dist/service-worker.js"
   },
   "action": {
     "default_state": "disabled",
@@ -29,12 +29,12 @@
         "https://www.chess.com/game/*",
         "https://www.chess.com/game/live/*"
       ],
-      "js": ["chess-com.js"],
+      "js": ["dist/chess-com.js"],
       "run_at": "document_idle"
     },
     {
       "matches": ["https://lichess.org/paste*"],
-      "js": ["lichess.js"],
+      "js": ["dist/lichess.js"],
       "run_at": "document_idle"
     }
   ]

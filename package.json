@@ -1,0 +1,17 @@
+{
+  "name": "chess-com-lichess-link",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chrome extension that imports the current Chess.com game into Lichess.",
+  "scripts": {
+    "build": "npm run clean && tsc --project tsconfig.json",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "watch": "tsc --project tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.34",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3"
+  }
+}

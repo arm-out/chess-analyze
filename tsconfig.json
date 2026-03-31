@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "strict": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "useUnknownInCatchVariables": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": ["chrome"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts"]
+}

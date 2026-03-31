@@ -2,6 +2,14 @@
 
 Chrome extension that detects supported Chess.com game pages and imports the current game into Lichess with one click.
 
+## Development
+
+1. Install dependencies with `npm install`.
+2. Build the extension with `npm run build`.
+3. Re-run `npm run build` whenever you change files under `src/`.
+
+The TypeScript source lives in `src/`, and the compiled extension files are emitted to `dist/`.
+
 ## How it works
 
 1. On a Chess.com game page, the content script watches for the Share button.
@@ -14,10 +22,11 @@ This avoids using the clipboard, avoids requiring a Lichess API token, avoids cr
 
 ## Load the extension
 
-1. Open `chrome://extensions`.
-2. Enable Developer mode.
-3. Click Load unpacked.
-4. Select this folder.
+1. Run `npm run build`.
+2. Open `chrome://extensions`.
+3. Enable Developer mode.
+4. Click Load unpacked.
+5. Select this folder.
 
 ## Notes
 
